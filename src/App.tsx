@@ -1,5 +1,6 @@
 import React from "react";
+import TodoList from "./components/TodoList";
 
-const App = () => <div>Hello World</div>;
+const App = () => <TodoList></TodoList>;
 
 export default App;
