@@ -10,14 +10,12 @@ const dummyTodoes: ITodoItem[] = new Array(5).fill("").map((e, index) => ({
   created: new Date(),
 }));
 
-const TodoList = () => {
-  return (
-    <div>
-      {dummyTodoes.map((todoe) => (
-        <TodoItem {...todoe}></TodoItem>
-      ))}
-    </div>
-  );
-};
+const TodoList = () => (
+  <ul className="list-group center">
+    {dummyTodoes.map((todo) => (
+      <TodoItem {...todo} key={todo.id} />
+    ))}
+  </ul>
+);
 
 export default TodoList;
