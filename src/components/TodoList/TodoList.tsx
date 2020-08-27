@@ -7,7 +7,7 @@ type TodoListProps = {
 };
 
 const TodoList: React.FC<TodoListProps> = ({ todos }) => (
-  <ul className="list-group p-5 mb3">
+  <ul className="list-group pl-5 pr-5 mt-3">
     {todos.map((todo) => (
       <TodoItem {...todo} key={todo.id} />
     ))}

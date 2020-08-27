@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navigation from "../components/Navigation";
 import { ITodoItem } from "../interfaces";
 import TodoList from "../components/TodoList";
+import TodoForm from "../components/TodoForm";
 
 const dummyTodoes: ITodoItem[] = new Array(5).fill("").map((e, index) => ({
   id: String(index),
@@ -17,6 +18,7 @@ const TodoListPage: React.FC = () => {
   return (
     <>
       <Navigation />
+      <TodoForm />
       <TodoList todos={todos} />
     </>
   );
