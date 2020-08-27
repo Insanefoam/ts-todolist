@@ -1,18 +1,14 @@
 import React from "react";
 import TodoItem from "../TodoItem";
-import ITodoItem from "../TodoItem/interfaces/ITodoItem";
+import { ITodoItem } from "../../interfaces";
 
-const dummyTodoes: ITodoItem[] = new Array(5).fill("").map((e, index) => ({
-  id: String(index),
-  title: `Todo ${index}`,
-  author: "John Doe",
-  checked: false,
-  created: new Date(),
-}));
+type TodoListProps = {
+  todos: ITodoItem[];
+};
 
-const TodoList = () => (
-  <ul className="list-group center">
-    {dummyTodoes.map((todo) => (
+const TodoList: React.FC<TodoListProps> = ({ todos }) => (
+  <ul className="list-group p-5 mb3">
+    {todos.map((todo) => (
       <TodoItem {...todo} key={todo.id} />
     ))}
   </ul>

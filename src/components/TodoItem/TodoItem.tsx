@@ -1,7 +1,12 @@
 import React from "react";
-import { TodoItemProps } from "./interfaces/TodoItemProps";
 
-const TodoItem = ({ title, author, created }: TodoItemProps) => (
+interface TodoItemProps {
+  title: string;
+  author: string;
+  created?: Date;
+}
+
+const TodoItem: React.FC<TodoItemProps> = ({ title, author, created }) => (
   <li className="list-group-item">
     <div>{title}</div>
     <div>{`Created by: ${author}`}</div>

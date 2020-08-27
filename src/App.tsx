@@ -1,7 +1,16 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import TodoList from "./components/TodoList";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import TodoListPage from "./pages/TodoListPage";
+import AboutPage from "./pages/AboutPage";
 
-const App = () => <TodoList />;
+const App: React.FC = () => (
+  <BrowserRouter>
+    <Switch>
+      <Route path="/" component={TodoListPage} />
+      <Route path="/about" component={AboutPage} />
+    </Switch>
+  </BrowserRouter>
+);
 
 export default App;

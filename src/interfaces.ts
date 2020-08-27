@@ -1,4 +1,4 @@
-export default interface ITodoItem {
+export interface ITodoItem {
   id: string | number;
   title: string;
   author: string;
