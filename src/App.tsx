@@ -7,7 +7,7 @@ import AboutPage from "./pages/AboutPage";
 const App: React.FC = () => (
   <BrowserRouter>
     <Switch>
-      <Route path="/" component={TodoListPage} />
+      <Route exact path="/" component={TodoListPage} />
       <Route path="/about" component={AboutPage} />
     </Switch>
   </BrowserRouter>

@@ -8,13 +8,13 @@ const Navigation: React.FC = () => {
         TodoList with TypeScript
       </NavLink>
       <ul className="navbar-nav navbar-expand">
-        <li className="nav-item active mr-4">
-          <NavLink className="nav-link" to="/">
+        <li className="nav-item mr-4">
+          <NavLink className="nav-link" to="/" exact>
             Home
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/about">
+          <NavLink className="nav-link" to="/about" exact>
             About
           </NavLink>
         </li>
