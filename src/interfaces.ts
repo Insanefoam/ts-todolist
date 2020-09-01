@@ -1,5 +1,5 @@
 export interface ITodoItem {
-  id: string | number;
+  id: string;
   title: string;
   author: string;
   checked: boolean;

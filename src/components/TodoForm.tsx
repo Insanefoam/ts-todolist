@@ -1,6 +1,10 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState } from "react";
 
-const TodoForm: React.FC = () => {
+interface TodoFormProps {
+  addHandler(title: string): void;
+}
+
+const TodoForm: React.FC<TodoFormProps> = ({ addHandler }) => {
   const [value, setValue] = useState("");
 
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -8,7 +12,15 @@ const TodoForm: React.FC = () => {
   };
 
   const keyPressHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter") alert("enter");
+    if (event.key === "Enter") {
+      addHandler(value);
+      setValue("");
+    }
+  };
+
+  const handlePress = (event: React.MouseEvent<HTMLButtonElement>) => {
+    addHandler(value);
+    setValue("");
   };
 
   return (
@@ -22,8 +34,12 @@ const TodoForm: React.FC = () => {
         onKeyPress={keyPressHandler}
       />
       <div className="input-group-append">
-        <button className="btn btn-outline-secondary" type="button">
-          Button
+        <button
+          className="btn btn-outline-secondary"
+          type="button"
+          onClick={handlePress}
+        >
+          Add Todo
         </button>
       </div>
     </div>

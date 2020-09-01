@@ -5,7 +5,7 @@ import TodoList from "../components/TodoList";
 import TodoForm from "../components/TodoForm";
 
 const dummyTodoes: ITodoItem[] = new Array(5).fill("").map((e, index) => ({
-  id: String(index),
+  id: `${index}`,
   title: `Todo ${index}`,
   author: "John Doe",
   checked: false,
@@ -15,11 +15,28 @@ const dummyTodoes: ITodoItem[] = new Array(5).fill("").map((e, index) => ({
 const TodoListPage: React.FC = () => {
   const [todos, setTodos] = useState(dummyTodoes);
 
+  const addTodo = (title: string) => {
+    setTodos((prev) => [
+      {
+        id: `${Date.now()}`,
+        title,
+        author: "John Doe",
+        checked: false,
+        created: new Date(),
+      },
+      ...prev,
+    ]);
+  };
+
+  const removeTodo = (id: string) => {
+    setTodos((prev) => prev.filter((todo) => todo.id !== id));
+  };
+
   return (
     <>
       <Navigation />
-      <TodoForm />
-      <TodoList todos={todos} />
+      <TodoForm addHandler={addTodo} />
+      <TodoList todos={todos} removeTodo={removeTodo} />
     </>
   );
 };
