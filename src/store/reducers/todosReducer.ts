@@ -1,7 +1,13 @@
 import { TodoAction } from "../constants/todos.constants";
 import { ITodoItem } from "../../interfaces";
+import { TodosState } from "../types/todos.types";
 
-export const todoReducer = (state: ITodoItem[] = [], action: TodoAction) => {
+const initialState: TodosState = [];
+
+export const todoReducer = (
+  state: TodosState = initialState,
+  action: TodoAction
+) => {
   switch (action.type) {
     case "ADD_TODO": {
       const newTodo: ITodoItem = {
