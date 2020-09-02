@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../store/actions/todos.actions";
+import { addTodo as addTodoStore } from "../store/actions/todos.actions";
 
 interface TodoFormProps {}
 
@@ -12,19 +12,19 @@ const TodoForm: React.FC<TodoFormProps> = () => {
     setValue(event.target.value);
   };
 
-  const addTodoHandler = (title: string) => {
-    dispatch(addTodo(title));
+  const addTodo = (title: string) => {
+    dispatch(addTodoStore(title));
     setValue("");
   };
 
   const keyPressHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
-      addTodoHandler(value);
+      addTodo(value);
     }
   };
 
   const handlePress = (_: React.MouseEvent<HTMLButtonElement>) => {
-    addTodoHandler(value);
+    addTodo(value);
   };
 
   return (
